@@ -6,26 +6,23 @@ function Article({ article: { title, date = "January 1, 1970", minutes, preview 
         <article>
             <header>
                 <h3>{title}</h3>
-                {<small>{date}• {test(minutes)} {minutes}min read</small>}
+                {<small>{date}• {loadEmoji(minutes)} {minutes}min read</small>}
             </header>
             <p>{preview}</p>
         </article>
     )
-    function test(m) {
-        let emoji = "☕️"
+    function loadEmoji(m) {
+        
+        const emoji = m >= 30 ? "🍱" : "☕️"
+        const interval = m >= 30 ? 10 : 5
+
         let emojis = ""
-        if (m > 30) {
-            emoji = "🍱"
-            for (let i = 0; i < minutes; i+= 10){
-                emojis += emoji
-            }
-        } else {
-            
-            for (let i = 0; i < minutes; i+= 5){
+        
+            for (let i = 0; i < minutes; i+= interval){
                 emojis += emoji
             }
            
-        }
+      
         return emojis
     }
 }

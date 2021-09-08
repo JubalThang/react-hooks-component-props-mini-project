@@ -1,14 +1,13 @@
 
 
-function About({blogData}) {
+function About({blogData : {image = "https://via.placeholder.com/215", about ="About"}}) {
+
     return (
        <aside>
-           <img src={blogData.image} alt="blog logo"/>
-           <p>{blogData.about}</p>
+           <img src={image} alt="blog logo"/>
+           <p>{about}</p>
        </aside>
     )
 }
-
-
 
 export default About
